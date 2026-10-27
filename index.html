@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TODO {{ZONA}}: sostituisci con città / zona servita (anche in og:title, description e JSON-LD) -->
+  <title>Tata Isa · Pet sitter a domicilio a {{ZONA}}</title>
+  <meta name="description" content="Tata Isa, pet sitter a domicilio a {{ZONA}}: passeggiate, pappa, farmaci, compagnia e visite dal veterinario. Il tuo animale resta a casa sua, al sicuro. Primo incontro gratuito.">
+  <meta name="theme-color" content="#FFF8EE">
+  <link rel="canonical" href="https://www.example.com/"> <!-- TODO: dominio definitivo -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Tata Isa · Pet sitter a domicilio a {{ZONA}}">
+  <meta property="og:description" content="Affida i tuoi animali a Tata Isa: stanno al sicuro, tu parti tranquillo.">
+  <meta property="og:image" content="https://www.example.com/assets/og-isa.jpg"> <!-- TODO: URL assoluto col dominio definitivo -->
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23FFD84D'/%3E%3Cg fill='%231E1A17'%3E%3Cellipse cx='32' cy='40' rx='11' ry='9'/%3E%3Cellipse cx='19' cy='27' rx='5' ry='6'/%3E%3Cellipse cx='27' cy='19' rx='5' ry='6.5'/%3E%3Cellipse cx='37' cy='19' rx='5' ry='6.5'/%3E%3Cellipse cx='45' cy='27' rx='5' ry='6'/%3E%3C/g%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700..800&family=Caveat:wght@600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+
+  <link rel="preload" as="image" type="image/webp"
+        imagesrcset="assets/isa-hero-600.webp 600w, assets/isa-hero-900.webp 900w, assets/isa-hero-1200.webp 1200w"
+        imagesizes="(min-width: 960px) 520px, 90vw">
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Tata Isa · Pet Sitter",
+    "description": "Pet sitting a domicilio: passeggiate, pappa, somministrazione farmaci, pulizia, compagnia e accompagnamento dal veterinario.",
+    "image": "https://www.example.com/assets/og-isa.jpg",
+    "url": "https://www.example.com/",
+    "telephone": "{{TELEFONO}}",
+    "email": "{{EMAIL}}",
+    "areaServed": "{{ZONA}}",
+    "address": { "@type": "PostalAddress", "addressLocality": "{{ZONA}}", "addressCountry": "IT" },
+    "sameAs": ["{{INSTAGRAM}}"],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Passeggiate per cani" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pet sitting a domicilio" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Somministrazione farmaci" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Accompagnamento dal veterinario" } }
+    ]
+  }
+  </script>
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <!-- Icone e decorazioni disegnate a mano -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-paw" viewBox="0 0 64 64">
+      <path fill="currentColor" d="M32 34c-8.5 0-15 7.4-15 13.6 0 4.6 3.6 6.6 7.6 6.6 3 0 4.9-1.4 7.4-1.4s4.4 1.4 7.4 1.4c4 0 7.6-2 7.6-6.6C47 41.4 40.5 34 32 34z"/>
+      <ellipse fill="currentColor" cx="15" cy="27" rx="5.2" ry="6.6" transform="rotate(-18 15 27)"/>
+      <ellipse fill="currentColor" cx="25.5" cy="16.5" rx="5.4" ry="7.2" transform="rotate(-6 25.5 16.5)"/>
+      <ellipse fill="currentColor" cx="38.5" cy="16.5" rx="5.4" ry="7.2" transform="rotate(6 38.5 16.5)"/>
+      <ellipse fill="currentColor" cx="49" cy="27" rx="5.2" ry="6.6" transform="rotate(18 49 27)"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 64 64">
+      <path fill="currentColor" d="M32 55C19 46 7 36.5 7 23.6 7 15.5 13.2 9.5 20.6 9.5c5 0 8.8 2.6 11.4 6.6 2.6-4 6.4-6.6 11.4-6.6C50.8 9.5 57 15.5 57 23.6 57 36.5 45 46 32 55z"/>
+    </symbol>
+    <symbol id="i-bone" viewBox="0 0 80 40">
+      <path fill="currentColor" stroke="#1E1A17" stroke-width="2.5" stroke-linejoin="round" d="M17 8.5c-5.2-4.6-13.4-.6-12.8 6.2.3 3 2.2 4.9 4.5 5.3-2.3.6-4.2 2.6-4.4 5.6-.4 6.8 7.9 10.4 12.8 5.6 1.5-1.4 2.4-3.3 2.6-4.8h41.6c.2 1.5 1.1 3.4 2.6 4.8 4.9 4.8 13.2 1.2 12.8-5.6-.2-3-2.1-5-4.4-5.6 2.3-.4 4.2-2.3 4.5-5.3.6-6.8-7.6-10.8-12.8-6.2-1.5 1.4-2.4 3.4-2.6 4.9H19.6c-.2-1.5-1.1-3.5-2.6-4.9z"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 64 64">
+      <path fill="currentColor" d="M32 4c1.6 13.5 4.6 23.3 28 28-23.4 4.7-26.4 14.5-28 28-1.6-13.5-4.6-23.3-28-28C27.4 27.3 30.4 17.5 32 4z"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M4 12h15M13 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="i-down" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 4v15M6 13l6 6 6-6"/>
+    </symbol>
+    <symbol id="i-wa" viewBox="0 0 32 32">
+      <path fill="currentColor" d="M16 3.2C9 3.2 3.3 8.8 3.3 15.8c0 2.4.7 4.7 1.9 6.7L3.2 28.8l6.5-2c1.9 1 4.1 1.6 6.3 1.6 7 0 12.7-5.6 12.7-12.6S23 3.2 16 3.2zm0 23c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1.2 1.2-3.8-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5.1 10 10 5.2 16 5.2S26.9 10 26.9 15.8 22 26.2 16 26.2zm6-7.8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6.6 3.5h2.6l1.4 4-2 1.4a12 12 0 0 0 6.5 6.5l1.4-2 4 1.4v2.6a2 2 0 0 1-2.2 2C10.6 18.8 5.2 13.4 4.6 5.7a2 2 0 0 1 2-2.2z"/>
+    </symbol>
+    <!-- Musetti stilizzati: Nito (scuro) e Lola (rossiccia) -->
+    <symbol id="cat-nito" viewBox="0 0 64 64">
+      <path fill="#1E1A17" d="M10 12l12 9a24 24 0 0 1 20 0l12-9-2 17c2 3 3 6.5 3 10 0 12-10.6 19-23 19S9 51 9 39c0-3.5 1-7 3-10z"/>
+      <ellipse fill="#FFD84D" cx="24" cy="38" rx="4" ry="4.6"/><ellipse fill="#FFD84D" cx="40" cy="38" rx="4" ry="4.6"/>
+      <ellipse fill="#1E1A17" cx="24" cy="38.5" rx="1.4" ry="3.4"/><ellipse fill="#1E1A17" cx="40" cy="38.5" rx="1.4" ry="3.4"/>
+      <path fill="#F9C9D4" d="M29.5 45h5l-2.5 2.6z"/>
+      <path fill="none" stroke="#FFF8EE" stroke-width="1.4" stroke-linecap="round" d="M32 47.6c-1 2-3.4 2.4-4.6 1M32 47.6c1 2 3.4 2.4 4.6 1M8 44l9-1M8 49l9-3M56 44l-9-1M56 49l-9-3"/>
+    </symbol>
+    <symbol id="cat-lola" viewBox="0 0 64 64">
+      <path fill="#FF7A3D" stroke="#1E1A17" stroke-width="2.4" stroke-linejoin="round" d="M11 11l12 10a24 24 0 0 1 18 0l12-10-1.5 18c2 3 3 6.5 3 10 0 12-10.6 19-22.5 19S9.5 51 9.5 39c0-3.5 1-7 3-10z"/>
+      <path fill="none" stroke="#1E1A17" stroke-width="2.4" stroke-linecap="round" d="M32 23v6M26 24l1.5 5M38 24l-1.5 5"/>
+      <path fill="none" stroke="#1E1A17" stroke-width="2.6" stroke-linecap="round" d="M20 38.5c1.6-2.4 5.4-2.4 7 0M37 38.5c1.6-2.4 5.4-2.4 7 0"/>
+      <path fill="#F9C9D4" stroke="#1E1A17" stroke-width="1.6" stroke-linejoin="round" d="M29.5 44.5h5L32 47z"/>
+      <path fill="none" stroke="#1E1A17" stroke-width="1.6" stroke-linecap="round" d="M32 47c-1 2-3.4 2.4-4.6 1M32 47c1 2 3.4 2.4 4.6 1M6 43l10-.5M6 48l10-2.5M58 43l-10-.5M58 48l-10-2.5"/>
+    </symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Vai al contenuto</a>
+
+  <!-- 0. HEADER -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Tata Isa, torna all'inizio">
+        <span class="logo-mark" aria-hidden="true"><svg><use href="#i-paw"/></svg></span>
+        <span class="logo-word">Tata Isa</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navigazione principale">
+        <ul>
+          <li><a href="#chi-sono">Chi sono</a></li>
+          <li><a href="#cosa-faccio">Cosa faccio</a></li>
+          <li><a href="#perche">Perché io</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+        <!-- TODO {{WHATSAPP}}: sostituisci 39XXXXXXXXXX con il numero di Isa (in tutta la pagina) -->
+        <a class="btn btn-ink btn-sm nav-cta-mobile" href="https://wa.me/39XXXXXXXXXX?text=Ciao%20Isa%2C%20vorrei%20conoscerti%20per%20un%20pet%20sitting" target="_blank" rel="noopener">
+          <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Scrivimi su WhatsApp
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-ink btn-sm header-cta" href="https://wa.me/39XXXXXXXXXX?text=Ciao%20Isa%2C%20vorrei%20conoscerti%20per%20un%20pet%20sitting" target="_blank" rel="noopener">
+          Scrivimi <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+          <span class="sr-only">Apri il menu</span>
+          <span class="menu-bars" aria-hidden="true"><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 1. HERO -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow reveal"><span class="dot" aria-hidden="true"></span> Pet sitter a domicilio · {{ZONA}}</p>
+          <h1 id="hero-title" class="hero-title reveal">
+            Pet sitting con
+            <span class="title-face" aria-hidden="true">
+              <picture>
+                <source srcset="assets/isa-face.webp" type="image/webp">
+                <img src="assets/isa-face.jpg" alt="" width="240" height="240">
+              </picture>
+            </span>
+            amore, a&nbsp;casa&nbsp;tua
+          </h1>
+          <p class="hero-sub reveal">Affida i tuoi animali a Tata Isa: stanno al sicuro, tu parti tranquillo.</p>
+          <div class="hero-ctas reveal">
+            <a class="btn btn-tangerine btn-lg" href="https://wa.me/39XXXXXXXXXX?text=Ciao%20Isa%2C%20vorrei%20conoscerti%20per%20un%20pet%20sitting" target="_blank" rel="noopener">
+              Prenota un primo incontro <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="link-arrow" href="#cosa-faccio">Scopri cosa faccio <svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a>
+          </div>
+          <svg class="deco deco-hero-paw" aria-hidden="true"><use href="#i-paw"/></svg>
+          <svg class="deco deco-hero-bone" aria-hidden="true"><use href="#i-bone"/></svg>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="hero-photo">
+            <picture>
+              <source type="image/webp" srcset="assets/isa-hero-600.webp 600w, assets/isa-hero-900.webp 900w, assets/isa-hero-1200.webp 1200w" sizes="(min-width: 960px) 520px, 90vw">
+              <img src="assets/isa-hero-900.jpg" srcset="assets/isa-hero-600.jpg 600w, assets/isa-hero-900.jpg 900w, assets/isa-hero-1200.jpg 1200w" sizes="(min-width: 960px) 520px, 90vw"
+                   alt="Isa sorride e abbraccia un cane bianco e nero felice, sotto un portico in pietra"
+                   width="1200" height="1600" fetchpriority="high">
+            </picture>
+          </div>
+          <div class="hero-card">
+            <svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg>
+            <span>Primo incontro<br>gratuito</span>
+          </div>
+          <div class="badge-rotate" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <defs><path id="badge-circle" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs>
+              <circle cx="60" cy="60" r="60" fill="#1E1A17"/>
+              <g class="badge-text">
+                <text><textPath href="#badge-circle" textLength="272">TATA ISA · PET SITTER · TATA ISA · PET SITTER · </textPath></text>
+              </g>
+              <use href="#i-paw" x="44" y="44" width="32" height="32" color="#FFD84D"/>
+            </svg>
+          </div>
+          <svg class="deco deco-hero-star" aria-hidden="true"><use href="#i-star"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. CHI SONO -->
+    <section class="section" id="chi-sono" aria-labelledby="chi-title">
+      <div class="container">
+        <div class="block block-butter about">
+          <div class="about-copy">
+            <p class="label reveal">Chi sono</p>
+            <h2 id="chi-title" class="h2 reveal">Ciao, sono Isa <span class="wave" aria-hidden="true">👋</span></h2>
+            <p class="lead reveal">Ciao, sono Isa, ma per i tuoi animali sarò semplicemente “Tata Isa”. Amo gli animali da sempre e ho due gatti, <strong>Nito</strong> e <strong>Lola</strong>: sono la mia famiglia e l'amore della mia vita. Per questo so quanto conta affidare chi ami a una persona di cui ti puoi fidare.</p>
+            <svg class="deco deco-about-heart" aria-hidden="true"><use href="#i-heart"/></svg>
+          </div>
+          <div class="about-media reveal">
+            <div class="video-frame">
+              <video class="lazy-video" muted loop playsinline preload="none"
+                     poster="assets/video-coccole-poster.jpg" width="720" height="960"
+                     aria-label="Isa coccola un barboncino rosso tra le braccia">
+                <source data-src="assets/video-coccole.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="tag tag-nito">
+              <svg class="tag-cat" aria-hidden="true"><use href="#cat-nito"/></svg>
+              <span>Nito</span>
+            </div>
+            <div class="tag tag-lola">
+              <svg class="tag-cat" aria-hidden="true"><use href="#cat-lola"/></svg>
+              <span>Lola</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. COSA FACCIO -->
+    <section class="section" id="cosa-faccio" aria-labelledby="cosa-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="label reveal">Cosa faccio</p>
+          <h2 id="cosa-title" class="h2 reveal">Tutto quello che serve, come lo faresti tu</h2>
+          <svg class="deco deco-services-star" aria-hidden="true"><use href="#i-star"/></svg>
+        </header>
+
+        <div class="services">
+          <figure class="service-video reveal">
+            <video class="lazy-video" muted loop playsinline preload="none"
+                   poster="assets/video-passeggiata-poster.jpg" width="720" height="960"
+                   aria-label="Passeggiata con due cagnolini al guinzaglio">
+              <source data-src="assets/video-passeggiata.mp4" type="video/mp4">
+            </video>
+            <figcaption><svg class="ico" aria-hidden="true"><use href="#i-paw"/></svg> In passeggiata</figcaption>
+          </figure>
+
+          <ul class="service-grid" role="list">
+            <li class="service-card bg-butter reveal">
+              <span class="service-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="11" r="4.5"/><path d="M13 16v13l-4 12M13 29l5 12M8 21l5-3 6 4"/><path d="M19 22c6 0 9 3 12 8"/><path d="M29 33c2-2 5-3 8-3h4l2-3 1 4v3c0 2-2 4-4 4h-9c-1 2-2 3-4 3"/><path d="M33 37v4M40 38v3"/></g></svg>
+              </span>
+              <h3>Passeggiate</h3>
+              <p>Per cani di piccola e grande taglia</p>
+            </li>
+            <li class="service-card bg-blush reveal">
+              <span class="service-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 25h36l-3 11c-.6 2.2-2.6 3.6-4.8 3.6H13.8c-2.2 0-4.2-1.4-4.8-3.6z"/><path d="M12 25c1-4 4-6 7-6M20 19c2-3 5-4 8-3M28 16c3 0 6 3 7 9"/><circle cx="17" cy="11" r="1.4" fill="currentColor"/><circle cx="25" cy="8" r="1.4" fill="currentColor"/><circle cx="31" cy="10" r="1.4" fill="currentColor"/></g></svg>
+              </span>
+              <h3>Pappa</h3>
+              <p>Agli orari che preferisci</p>
+            </li>
+            <li class="service-card bg-sage reveal">
+              <span class="service-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="17" width="26" height="13" rx="6.5" transform="rotate(-35 20 23.5)"/><path d="M16.3 15.8l7.4 10.6"/><circle cx="35" cy="34" r="7"/><path d="M30 39l10-10"/></g></svg>
+              </span>
+              <h3>Farmaci</h3>
+              <p>Somministrazione su indicazione medica</p>
+            </li>
+            <li class="service-card bg-blush reveal">
+              <span class="service-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M30 6L20 26"/><path d="M14 24l12 6-4 12c-6-1-11-4-14-9z"/><path d="M13 33l5 2M16 28l7 3"/><path d="M37 26l1.5 3.5L42 31l-3.5 1.5L37 36l-1.5-3.5L32 31l3.5-1.5z" fill="currentColor"/></g></svg>
+              </span>
+              <h3>Pulizia</h3>
+              <p>Lettiere, cucce e spazi dell'animale</p>
+            </li>
+            <li class="service-card bg-sage reveal">
+              <span class="service-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22L24 7l18 15"/><path d="M11 18v22h26V18"/><path d="M24 35c-5-3.4-8-6-8-9.4 0-2.3 1.8-4 3.9-4 1.8 0 3.2 1 4.1 2.6.9-1.6 2.3-2.6 4.1-2.6 2.1 0 3.9 1.7 3.9 4 0 3.4-3 6-8 9.4z" fill="currentColor"/></g></svg>
+              </span>
+              <h3>Compagnia</h3>
+              <p>A casa tua, quando non ci sei</p>
+            </li>
+            <li class="service-card bg-butter reveal">
+              <span class="service-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6H7v12a9 9 0 0 0 18 0V6h-3"/><path d="M16 27v5a9 9 0 0 0 18 0v-4"/><circle cx="34" cy="24" r="4"/></g></svg>
+              </span>
+              <h3>Veterinario</h3>
+              <p>Accompagnamento alle visite</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FLESSIBILITÀ -->
+    <section class="section section-tight" id="orari" aria-labelledby="orari-title">
+      <div class="container">
+        <div class="block block-ink flex-band">
+          <div class="flex-copy">
+            <h2 id="orari-title" class="h2 reveal">Mi adatto ai tuoi orari</h2>
+            <p class="reveal">Sono disponibile in diverse fasce orarie durante la giornata, così posso adattarmi alle tue esigenze: una passeggiata a mezzogiorno, una visita dal veterinario, qualche ora di compagnia mentre sei al lavoro.</p>
+          </div>
+          <ul class="chips reveal" role="list" aria-label="Fasce orarie disponibili">
+            <li class="chip chip-butter"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></svg> Mattina</li>
+            <li class="chip chip-tangerine"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6.5" fill="currentColor"/></svg> Mezzogiorno</li>
+            <li class="chip chip-blush"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 17a7 7 0 0 1 14 0M2.5 17h19M12 5v2.5M5.6 8.6l1.6 1.6M18.4 8.6l-1.6 1.6"/></g></svg> Pomeriggio</li>
+            <li class="chip chip-sage"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.5 3.5A8.5 8.5 0 1 0 20.5 17 7 7 0 0 1 15.5 3.5z"/></svg> Sera</li>
+          </ul>
+          <svg class="deco deco-flex-star" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg class="deco deco-flex-paw" aria-hidden="true"><use href="#i-paw"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PERCHÉ SCEGLIERMI -->
+    <section class="section" id="perche" aria-labelledby="perche-title">
+      <div class="container why">
+        <header class="why-head">
+          <p class="label reveal">Perché io</p>
+          <h2 id="perche-title" class="h2 reveal">Il tuo animale resta a casa sua. <span class="hl">Felice.</span></h2>
+          <svg class="deco deco-why-bone" aria-hidden="true"><use href="#i-bone"/></svg>
+        </header>
+        <ol class="why-list" role="list">
+          <li class="reveal"><span class="why-num" aria-hidden="true">01</span><span class="why-text">Esperienza con cani e gatti, grandi e piccoli</span></li>
+          <li class="reveal"><span class="why-num" aria-hidden="true">02</span><span class="why-text">Cura attenta e routine rispettate</span></li>
+          <li class="reveal"><span class="why-num" aria-hidden="true">03</span><span class="why-text">Il tuo animale resta nel suo ambiente, senza stress</span></li>
+          <li class="reveal"><span class="why-num" aria-hidden="true">04</span><span class="why-text">Tanto affetto, sempre</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. CTA FINALE -->
+    <section class="section" id="contatti" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="block block-tangerine cta">
+          <div class="paw-trail" aria-hidden="true">
+            <svg style="--i:0"><use href="#i-paw"/></svg><svg style="--i:1"><use href="#i-paw"/></svg><svg style="--i:2"><use href="#i-paw"/></svg><svg style="--i:3"><use href="#i-paw"/></svg><svg style="--i:4"><use href="#i-paw"/></svg><svg style="--i:5"><use href="#i-paw"/></svg><svg style="--i:6"><use href="#i-paw"/></svg><svg style="--i:7"><use href="#i-paw"/></svg><svg style="--i:8"><use href="#i-paw"/></svg><svg style="--i:9"><use href="#i-paw"/></svg>
+          </div>
+          <svg class="deco deco-cta-heart" aria-hidden="true"><use href="#i-heart"/></svg>
+          <svg class="deco deco-cta-star" aria-hidden="true"><use href="#i-star"/></svg>
+          <h2 id="cta-title" class="h2 cta-title reveal">I tuoi animaletti saranno al sicuro con me.</h2>
+          <p class="cta-text reveal">Scrivimi per un primo incontro senza impegno: conosciamoci, e fai conoscere a me il tuo amico a quattro zampe!</p>
+          <div class="cta-buttons reveal">
+            <a class="btn btn-ink btn-lg" href="https://wa.me/39XXXXXXXXXX?text=Ciao%20Isa%2C%20vorrei%20conoscerti%20per%20un%20pet%20sitting" target="_blank" rel="noopener">
+              <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Contattami su WhatsApp <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <!-- TODO {{TELEFONO}}: numero in formato +39XXXXXXXXXX -->
+            <a class="btn btn-outline btn-lg" href="tel:{{TELEFONO}}">
+              <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Chiamami
+            </a>
+          </div>
+          <p class="signature reveal">— Tata Isa <span aria-hidden="true">♥</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#top" aria-label="Tata Isa, torna all'inizio">
+          <span class="logo-mark" aria-hidden="true"><svg><use href="#i-paw"/></svg></span>
+          <span class="logo-word">Tata Isa</span>
+        </a>
+        <p>Pet sitting a domicilio, con amore.</p>
+      </div>
+      <!-- TODO {{ZONA}} {{TELEFONO}} {{EMAIL}} {{INSTAGRAM}} -->
+      <dl class="footer-info">
+        <div><dt>Zona</dt><dd>{{ZONA}}</dd></div>
+        <div><dt>Telefono</dt><dd><a href="tel:{{TELEFONO}}">{{TELEFONO}}</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="{{INSTAGRAM}}" target="_blank" rel="noopener">@{{INSTAGRAM}}</a></dd></div>
+      </dl>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Tata Isa · Pet Sitter</p>
+      <a href="#top" class="to-top">Torna su ↑</a>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flottante (mobile) -->
+  <a class="wa-float" href="https://wa.me/39XXXXXXXXXX?text=Ciao%20Isa%2C%20vorrei%20conoscerti%20per%20un%20pet%20sitting" target="_blank" rel="noopener" aria-label="Scrivi a Tata Isa su WhatsApp">
+    <svg aria-hidden="true"><use href="#i-wa"/></svg>
+  </a>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
