@@ -11,6 +11,7 @@
   <link rel="alternate" hreflang="it" href="{{base}}">
   <link rel="alternate" hreflang="en" href="{{base}}en/">
   <link rel="alternate" hreflang="de" href="{{base}}de/">
+  <link rel="alternate" hreflang="es" href="{{base}}es/">
   <link rel="alternate" hreflang="x-default" href="{{base}}">
 
   <meta property="og:type" content="website">
@@ -46,6 +47,7 @@
     "areaServed": ["Firenze", "Chianti", "Siena", "Val d'Orcia"],
     "address": { "@type": "PostalAddress", "addressRegion": "Toscana", "addressCountry": "IT" },
     "inLanguage": "{{lang}}",
+    "knowsLanguage": ["it", "en", "es"],
     "makesOffer": {
       "@type": "Offer",
       "itemOffered": { "@type": "Service", "name": "Pet sitting" },
@@ -53,6 +55,7 @@
     }
   }
   </script>
+  <script type="application/ld+json">{{faq_jsonld}}</script>
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -134,6 +137,7 @@
         <ul class="lang-switch" role="list" aria-label="{{lang_label}}">
           <li><a href="{{root}}./" hreflang="it" lang="it" {{cur_it}}>IT</a></li>
           <li><a href="{{root}}en/" hreflang="en" lang="en" {{cur_en}}>EN</a></li>
+          <li><a href="{{root}}es/" hreflang="es" lang="es" {{cur_es}}>ES</a></li>
           <li><a href="{{root}}de/" hreflang="de" lang="de" {{cur_de}}>DE</a></li>
         </ul>
         <a class="btn btn-ink btn-sm header-cta" href="{{wa}}" target="_blank" rel="noopener">
@@ -222,6 +226,7 @@
             <p class="label reveal">{{about_label}}</p>
             <h2 id="chi-title" class="h2 reveal">{{about_title}} <span class="wave" aria-hidden="true">👋</span></h2>
             <p class="lead reveal">{{about_text}}</p>
+            <p class="langs reveal"><span aria-hidden="true">🇮🇹 🇬🇧 🇪🇸</span> {{langs_text}}</p>
             <svg class="deco deco-about-heart" aria-hidden="true"><use href="#i-heart"/></svg>
           </div>
           <div class="about-media reveal">
@@ -370,6 +375,7 @@
             <a class="btn btn-ink btn-lg reveal" href="{{wa_biz}}" target="_blank" rel="noopener">
               <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> {{biz_cta}} <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
+            <a class="link-arrow biz-pdf reveal" href="{{root}}stampa/tata-isa-strutture.pdf" download>{{biz_pdf}} <svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a>
           </div>
           <div class="biz-visual reveal">
             <ul class="venue-stickers" role="list" aria-label="{{biz_venues_label}}">
@@ -446,23 +452,41 @@
       </div>
     </section>
 
-    <!-- 10. RECENSIONI — TODO: nascosta finché non arrivano recensioni vere.
-         Per pubblicarla: togli l'attributo `hidden`, sostituisci testi e nomi (con il consenso dei clienti). -->
-    <section class="section" id="recensioni" aria-labelledby="rev-title" hidden>
+    <!-- 10. RECENSIONI + GALLERIA
+         TODO: sostituire i segnaposto con foto e recensioni vere (src/content.py → "reviews"),
+         con il consenso dei clienti. Le foto vanno in assets/reviews/. -->
+    <section class="section" id="recensioni" aria-labelledby="rev-title">
       <div class="container">
         <header class="section-head">
-          <p class="label">{{rev_label}}</p>
-          <h2 id="rev-title" class="h2">{{rev_title}}</h2>
+          <p class="label reveal">{{rev_label}}</p>
+          <h2 id="rev-title" class="h2 reveal">{{rev_title}}</h2>
+          <p class="section-intro reveal">{{rev_intro}}</p>
         </header>
         <ul class="reviews" role="list">
-          <li class="review bg-butter"><blockquote>“TODO testo recensione”</blockquote><p class="review-who">TODO Nome · TODO cane/gatto</p></li>
-          <li class="review bg-blush"><blockquote>“TODO testo recensione”</blockquote><p class="review-who">TODO Nome · TODO cane/gatto</p></li>
-          <li class="review bg-sage"><blockquote>“TODO testo recensione”</blockquote><p class="review-who">TODO Nome · TODO cane/gatto</p></li>
+{{reviews_html}}
         </ul>
+        <div class="rev-cta reveal">
+          <p>{{rev_cta_text}}</p>
+          <a class="btn btn-ink" href="{{wa_review}}" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> {{rev_cta}} <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
       </div>
     </section>
 
-    <!-- 11. CTA FINALE + MESSAGGIO WHATSAPP -->
+    <!-- 11. DOMANDE FREQUENTI — TODO: far verificare le risposte a Isa (src/content.py → "faq") -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-wrap">
+        <header class="faq-head">
+          <p class="label reveal">{{faq_label}}</p>
+          <h2 id="faq-title" class="h2 reveal">{{faq_title}}</h2>
+          <svg class="deco deco-faq-paw" aria-hidden="true"><use href="#i-paw"/></svg>
+        </header>
+        <div class="faq-list">
+{{faq_html}}
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. CTA FINALE + MESSAGGIO WHATSAPP -->
     <section class="section" id="contatti" aria-labelledby="cta-title">
       <div class="container">
         <div class="block block-tangerine cta">
@@ -476,6 +500,7 @@
 
           <form class="composer reveal" id="composer">
             <h3 class="composer-title">{{c_title}}</h3>
+            <p class="composer-note">{{c_note}}</p>
             <fieldset>
               <legend>{{c_pet}}</legend>
               <div class="pick">
@@ -491,23 +516,23 @@
             <fieldset>
               <legend>{{c_need}}</legend>
               <div class="pick">
-                <label><input type="checkbox" name="need" value="{{n1}}"><span>{{n1}}</span></label>
-                <label><input type="checkbox" name="need" value="{{n2}}"><span>{{n2}}</span></label>
-                <label><input type="checkbox" name="need" value="{{n3}}"><span>{{n3}}</span></label>
-                <label><input type="checkbox" name="need" value="{{n4}}"><span>{{n4}}</span></label>
-                <label><input type="checkbox" name="need" value="{{n5}}"><span>{{n5}}</span></label>
-                <label><input type="checkbox" name="need" value="{{n6}}"><span>{{n6}}</span></label>
-                <label><input type="checkbox" name="need" value="{{n7}}"><span>{{n7}}</span></label>
-                <label><input type="checkbox" name="need" value="{{n8}}"><span>{{n8}}</span></label>
+                <label><input type="checkbox" name="need" value="{{v_n1}}"><span>{{n1}}</span></label>
+                <label><input type="checkbox" name="need" value="{{v_n2}}"><span>{{n2}}</span></label>
+                <label><input type="checkbox" name="need" value="{{v_n3}}"><span>{{n3}}</span></label>
+                <label><input type="checkbox" name="need" value="{{v_n4}}"><span>{{n4}}</span></label>
+                <label><input type="checkbox" name="need" value="{{v_n5}}"><span>{{n5}}</span></label>
+                <label><input type="checkbox" name="need" value="{{v_n6}}"><span>{{n6}}</span></label>
+                <label><input type="checkbox" name="need" value="{{v_n7}}"><span>{{n7}}</span></label>
+                <label><input type="checkbox" name="need" value="{{v_n8}}"><span>{{n8}}</span></label>
               </div>
             </fieldset>
             <fieldset>
               <legend>{{c_when}}</legend>
               <div class="pick">
-                <label><input type="checkbox" name="when" value="{{t_morning}}"><span>{{t_morning}}</span></label>
-                <label><input type="checkbox" name="when" value="{{t_noon}}"><span>{{t_noon}}</span></label>
-                <label><input type="checkbox" name="when" value="{{t_afternoon}}"><span>{{t_afternoon}}</span></label>
-                <label><input type="checkbox" name="when" value="{{t_evening}}"><span>{{t_evening}}</span></label>
+                <label><input type="checkbox" name="when" value="{{v_t_morning}}"><span>{{t_morning}}</span></label>
+                <label><input type="checkbox" name="when" value="{{v_t_noon}}"><span>{{t_noon}}</span></label>
+                <label><input type="checkbox" name="when" value="{{v_t_afternoon}}"><span>{{t_afternoon}}</span></label>
+                <label><input type="checkbox" name="when" value="{{v_t_evening}}"><span>{{t_evening}}</span></label>
               </div>
             </fieldset>
             <div class="bubble-wrap">
@@ -540,7 +565,7 @@
       <dl class="footer-info">
         <div><dt>{{f_zone}}</dt><dd>Firenze · Chianti · Siena · Val d'Orcia</dd></div>
         <div><dt>WhatsApp</dt><dd><a href="{{wa}}" target="_blank" rel="noopener">+39 339 849 9393</a></dd></div>
-        <div><dt>{{f_lang}}</dt><dd><a href="{{root}}./" hreflang="it" lang="it">Italiano</a> · <a href="{{root}}en/" hreflang="en" lang="en">English</a> · <a href="{{root}}de/" hreflang="de" lang="de">Deutsch</a></dd></div>
+        <div><dt>{{f_lang}}</dt><dd><a href="{{root}}./" hreflang="it" lang="it">Italiano</a> · <a href="{{root}}en/" hreflang="en" lang="en">English</a> · <a href="{{root}}es/" hreflang="es" lang="es">Español</a> · <a href="{{root}}de/" hreflang="de" lang="de">Deutsch</a></dd></div>
       </dl>
     </div>
     <div class="container footer-bottom">

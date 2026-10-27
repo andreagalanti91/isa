@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Tata Isa · Volantino reception</title>
+<link rel="stylesheet" href="print.css">
+<style>
+  @page { size: A5; margin: 0; }
+  .page { width: 148mm; height: 210mm; padding: 10mm 11mm; display: flex; flex-direction: column; }
+
+  .top { display: flex; justify-content: space-between; align-items: center; }
+  .top .area { font-size: 7pt; font-weight: 500; color: var(--muted); text-align: right; line-height: 1.3; }
+
+  .head { margin-top: 5mm; }
+  .head h1 { font-size: 30pt; }
+  .head .alt { margin-top: 2mm; font: 800 14pt/1.15 var(--title); letter-spacing: -.02em; color: var(--muted); }
+
+  .mid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin-top: 5mm; align-items: center; }
+  .photo-wrap { position: relative; }
+  .photo { background: var(--blush); padding: 2.5mm; border-radius: 6mm; transform: rotate(-2.5deg); }
+  .photo img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; object-position: 50% 35%; border-radius: 4mm; }
+  .sticker { position: absolute; right: -4mm; bottom: -5mm; width: 21mm; height: 21mm; display: grid; place-content: center; text-align: center; border-radius: 50%; background: var(--butter); border: .5mm solid var(--ink); box-shadow: .8mm .8mm 0 var(--ink); transform: rotate(10deg); line-height: 1; }
+  .sticker b { font: 800 16pt/1 var(--title); letter-spacing: -.03em; margin: .4mm 0; }
+  .sticker small { font-size: 5.6pt; font-weight: 700; }
+
+  .ask .hand { font-size: 14pt; color: var(--muted); }
+  .ask .title { font-size: 25pt; margin-top: 1mm; }
+  .ask p.desc { margin-top: 2.5mm; font-size: 8.6pt; line-height: 1.4; }
+
+  .svcs { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-top: 7mm; }
+  .svcs li { display: flex; align-items: center; gap: 2.5mm; padding: 2.4mm 3mm; border: .5mm solid var(--ink); border-radius: 3.5mm; }
+  .svcs .e { font-size: 13pt; line-height: 1; }
+  .svcs b { display: block; font: 800 9.5pt/1.1 var(--title); }
+  .svcs span { display: block; font-size: 7pt; color: var(--ink); }
+
+  .bottom { margin-top: 4mm; display: grid; grid-template-columns: 1fr 30mm; gap: 6mm; align-items: center; padding: 5mm 6mm; border-radius: 5mm; }
+  .bottom .wa { display: inline-flex; align-items: center; gap: 2mm; padding: 2mm 3.8mm; border-radius: 99px; background: #25D366; color: var(--ink); font: 800 11.5pt/1 var(--title); }
+  .bottom .wa svg { width: 4.6mm; height: 4.6mm; }
+  .bottom .free { margin-top: 3mm; font-size: 8pt; color: var(--cream); line-height: 1.35; }
+  .bottom .free b { color: var(--butter); }
+  .bottom .langs { margin-top: 2.5mm; font-size: 7.6pt; color: var(--cream); }
+  .bottom .qr { padding: 1.8mm; }
+  .bottom .scan { margin-top: 1.2mm; text-align: center; font: 600 11pt/1 "Caveat", cursive; color: var(--butter); }
+  .venue { margin-top: auto; padding-top: 5mm; display: flex; gap: 2mm; align-items: flex-end; font-size: 7pt; color: var(--muted); }
+  .venue span { flex: 1; border-bottom: .3mm dashed var(--muted); height: 3.5mm; }
+  .deco { width: 9mm; height: 9mm; color: var(--tangerine); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="paw" viewBox="0 0 64 64"><path fill="currentColor" d="M32 34c-8.5 0-15 7.4-15 13.6 0 4.6 3.6 6.6 7.6 6.6 3 0 4.9-1.4 7.4-1.4s4.4 1.4 7.4 1.4c4 0 7.6-2 7.6-6.6C47 41.4 40.5 34 32 34z"/><ellipse fill="currentColor" cx="15" cy="27" rx="5.2" ry="6.6" transform="rotate(-18 15 27)"/><ellipse fill="currentColor" cx="25.5" cy="16.5" rx="5.4" ry="7.2" transform="rotate(-6 25.5 16.5)"/><ellipse fill="currentColor" cx="38.5" cy="16.5" rx="5.4" ry="7.2" transform="rotate(6 38.5 16.5)"/><ellipse fill="currentColor" cx="49" cy="27" rx="5.2" ry="6.6" transform="rotate(18 49 27)"/></symbol>
+  <symbol id="star" viewBox="0 0 64 64"><path fill="currentColor" d="M32 4c1.6 13.5 4.6 23.3 28 28-23.4 4.7-26.4 14.5-28 28-1.6-13.5-4.6-23.3-28-28C27.4 27.3 30.4 17.5 32 4z"/></symbol>
+  <symbol id="wa" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3.2C9 3.2 3.3 8.8 3.3 15.8c0 2.4.7 4.7 1.9 6.7L3.2 28.8l6.5-2c1.9 1 4.1 1.6 6.3 1.6 7 0 12.7-5.6 12.7-12.6S23 3.2 16 3.2zm0 23c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1.2 1.2-3.8-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5.1 10 10 5.2 16 5.2S26.9 10 26.9 15.8 22 26.2 16 26.2zm6-7.8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></symbol>
+</svg>
+
+<section class="page">
+  <div class="top">
+    <span class="logo"><span class="logo-mark"><svg><use href="#paw"/></svg></span>Tata Isa</span>
+    <span class="area">Pet sitter<br>Firenze · Chianti · Siena · Val d'Orcia</span>
+  </div>
+
+  <div class="head">
+    <h1>Hai un animale con te?</h1>
+    <p class="alt">Travelling with a pet? · ¿Viajas con tu mascota?</p>
+  </div>
+
+  <div class="mid">
+    <div class="photo-wrap">
+      <div class="photo"><img src="../../assets/isa-hero-900.jpg" alt=""></div>
+      <div class="sticker"><small>da · from · desde</small><b>15€</b><small>/ ora · hour · hora</small></div>
+    </div>
+    <div class="ask">
+      <p class="hand">Chiedi di · Ask for · Pregunta por</p>
+      <p class="title">Tata Isa</p>
+      <p class="desc">Tu esci a cena, al museo o in cantina: io mi prendo cura del tuo cane o gatto.<br><br>
+        You go out, I look after your pet.<br>Tú sales, yo cuido de tu mascota.</p>
+    </div>
+  </div>
+
+  <ul class="svcs">
+    <li class="bg-butter"><span class="e">🐕</span><div><b>Passeggiate</b><span>Walks · Paseos</span></div></li>
+    <li class="bg-blush"><span class="e">🛋️</span><div><b>Compagnia</b><span>Company · Compañía</span></div></li>
+    <li class="bg-sage"><span class="e">🥣</span><div><b>Pappa</b><span>Feeding · Comida</span></div></li>
+    <li class="bg-butter"><span class="e">🩺</span><div><b>Veterinario</b><span>Vet visits · Veterinario</span></div></li>
+  </ul>
+
+  <p class="venue">Struttura · Hotel · Alojamiento: <span></span></p>
+
+  <div class="bottom bg-ink">
+    <div>
+      <span class="wa"><svg><use href="#wa"/></svg> +39 339 849 9393</span>
+      <p class="free"><b>Primo incontro gratuito</b> · First meeting free · Primer encuentro gratis</p>
+      <p class="langs">🇮🇹 Italiano · 🇬🇧 English · 🇪🇸 Español</p>
+    </div>
+    <div>
+      <div class="qr"><img src="../../assets/print/qr-sito.svg" alt="QR code"></div>
+      <p class="scan">scan me!</p>
+    </div>
+  </div>
+</section>
+</body>
+</html>

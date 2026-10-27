@@ -792,12 +792,101 @@ strong { font-weight: 700; }
   }
 }
 
-/* ---------- Recensioni (nascoste finché non ci sono) ---------- */
-.reviews { list-style: none; padding: 0; display: grid; gap: 16px; }
-.review { padding: 28px; border-radius: var(--radius-lg); border: 2px solid var(--ink); }
-.review blockquote { margin: 0; font-size: 20px; line-height: 1.45; }
-.review-who { margin-top: 16px; font-weight: 700; }
-@media (min-width: 860px) { .reviews { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+/* ---------- Recensioni + galleria ---------- */
+.reviews { list-style: none; padding: 0; display: grid; gap: 18px; grid-template-columns: 1fr; }
+.review {
+  display: flex; flex-direction: column;
+  background: #fff;
+  border: 2px solid var(--ink); border-radius: var(--radius-lg);
+  padding: 12px 12px 20px;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.review:nth-child(odd) { transform: rotate(-.8deg); }
+.review:nth-child(even) { transform: rotate(.8deg); }
+.rev-photo {
+  position: relative;
+  display: grid; place-items: center; align-content: center; gap: 8px;
+  aspect-ratio: 4 / 3;
+  border-radius: calc(var(--radius-lg) - 10px);
+  overflow: hidden;
+}
+.rev-photo img { width: 100%; height: 100%; object-fit: cover; }
+.rev-emoji { font-size: 64px; line-height: 1; }
+.rev-soon {
+  padding: 4px 12px; border-radius: var(--radius-pill);
+  background: var(--cream); border: 2px dashed var(--ink);
+  font-size: 13px; font-weight: 700;
+}
+.rev-quote { margin: 18px 8px 0; font-size: 18px; line-height: 1.45; color: var(--muted); font-style: italic; }
+.rev-who { margin: 14px 8px 0; display: grid; gap: 2px; font-size: 15px; }
+.rev-who span { color: var(--muted); }
+.rev-cta {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px;
+  margin-top: 32px; padding: 22px 24px;
+  border: 2px dashed var(--ink); border-radius: var(--radius-md);
+}
+.rev-cta p { max-width: 52ch; font-weight: 500; }
+@media (min-width: 640px) { .reviews { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .reviews { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+
+/* ---------- Domande frequenti ---------- */
+.faq-wrap { display: grid; gap: 32px; }
+.faq-head { position: relative; }
+.deco-faq-paw { width: 64px; height: 64px; color: var(--blush); right: 6%; top: 0; transform: rotate(18deg); }
+.faq-list { display: grid; gap: 10px; }
+.faq-item {
+  border: 2px solid var(--ink); border-radius: var(--radius-md);
+  background: #fff;
+  transition: background-color .2s;
+}
+.faq-item[open] { background: var(--butter); }
+.faq-item summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  min-height: 56px; padding: 14px 18px 14px 22px;
+  font: 800 clamp(18px, 1.8vw, 21px)/1.25 var(--font-title); letter-spacing: -.01em;
+  cursor: pointer; list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-icon {
+  position: relative; flex: none;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--ink);
+  transition: transform .25s var(--ease);
+}
+.faq-icon::before, .faq-icon::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 12px; height: 2.5px; margin: -1.25px 0 0 -6px;
+  background: var(--cream); border-radius: 2px;
+}
+.faq-icon::after { transform: rotate(90deg); transition: transform .25s var(--ease); }
+.faq-item[open] .faq-icon { transform: rotate(180deg); }
+.faq-item[open] .faq-icon::after { transform: rotate(0); }
+.faq-item p { padding: 0 22px 20px; max-width: 64ch; }
+@media (min-width: 960px) {
+  .faq-wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 64px; align-items: start; }
+  .faq-head { position: sticky; top: 120px; }
+  .deco-faq-paw { top: auto; bottom: -90px; right: auto; left: 20%; }
+}
+
+/* ---------- Varie v3 ---------- */
+.langs {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 20px; padding: 8px 16px;
+  background: var(--cream); border: 2px solid var(--ink); border-radius: var(--radius-pill);
+  font-weight: 700; font-size: 16px;
+}
+.biz-pdf { margin-top: 18px; margin-left: 4px; }
+.biz .btn + .biz-pdf { display: inline-flex; }
+.composer-note:empty { display: none; }
+.composer-note { margin-top: 4px; font-size: 14px; color: var(--muted); }
+@media (max-width: 420px) {
+  .header-inner { gap: 8px; }
+  .lang-switch a { min-width: 30px; height: 32px; padding: 0 4px; font-size: 12px; }
+  .logo { gap: 8px; }
+  .logo-mark { width: 36px; height: 36px; }
+  .logo-word { font-size: 20px; }
+  .menu-toggle { width: 44px; height: 44px; }
+}
 
 /* ---------- Compositore messaggio WhatsApp ---------- */
 .composer {
