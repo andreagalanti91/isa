@@ -1,0 +1,559 @@
+<!doctype html>
+<!-- File generato da build.py: modifica src/template.html e src/content.py, poi esegui `python3 build.py` -->
+<html lang="{{lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{meta_title}}</title>
+  <meta name="description" content="{{meta_desc}}">
+  <meta name="theme-color" content="#FFF8EE">
+  <link rel="canonical" href="{{url}}">
+  <link rel="alternate" hreflang="it" href="{{base}}">
+  <link rel="alternate" hreflang="en" href="{{base}}en/">
+  <link rel="alternate" hreflang="de" href="{{base}}de/">
+  <link rel="alternate" hreflang="x-default" href="{{base}}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="{{og_locale}}">
+  <meta property="og:url" content="{{url}}">
+  <meta property="og:title" content="{{meta_title}}">
+  <meta property="og:description" content="{{hero_sub}}">
+  <meta property="og:image" content="{{base}}assets/og-isa.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23FFD84D'/%3E%3Cg fill='%231E1A17'%3E%3Cellipse cx='32' cy='40' rx='11' ry='9'/%3E%3Cellipse cx='19' cy='27' rx='5' ry='6'/%3E%3Cellipse cx='27' cy='19' rx='5' ry='6.5'/%3E%3Cellipse cx='37' cy='19' rx='5' ry='6.5'/%3E%3Cellipse cx='45' cy='27' rx='5' ry='6'/%3E%3C/g%3E%3C/svg%3E">
+
+  <link rel="preload" href="{{root}}assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{root}}assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="preload" as="image" type="image/webp"
+        imagesrcset="{{root}}assets/isa-hero-450.webp 450w, {{root}}assets/isa-hero-600.webp 600w, {{root}}assets/isa-hero-900.webp 900w, {{root}}assets/isa-hero-1200.webp 1200w"
+        imagesizes="(min-width: 960px) 480px, 80vw">
+  <style>{{css}}</style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Tata Isa · Pet Sitter",
+    "description": "{{meta_desc}}",
+    "image": "{{base}}assets/og-isa.jpg",
+    "url": "{{url}}",
+    "telephone": "+393398499393",
+    "priceRange": "{{price_from}} 15 € {{price_unit}}",
+    "areaServed": ["Firenze", "Chianti", "Siena", "Val d'Orcia"],
+    "address": { "@type": "PostalAddress", "addressRegion": "Toscana", "addressCountry": "IT" },
+    "inLanguage": "{{lang}}",
+    "makesOffer": {
+      "@type": "Offer",
+      "itemOffered": { "@type": "Service", "name": "Pet sitting" },
+      "priceSpecification": { "@type": "UnitPriceSpecification", "minPrice": 15, "priceCurrency": "EUR", "unitCode": "HUR" }
+    }
+  }
+  </script>
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <!-- Icone e decorazioni disegnate a mano -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-paw" viewBox="0 0 64 64">
+      <path fill="currentColor" d="M32 34c-8.5 0-15 7.4-15 13.6 0 4.6 3.6 6.6 7.6 6.6 3 0 4.9-1.4 7.4-1.4s4.4 1.4 7.4 1.4c4 0 7.6-2 7.6-6.6C47 41.4 40.5 34 32 34z"/>
+      <ellipse fill="currentColor" cx="15" cy="27" rx="5.2" ry="6.6" transform="rotate(-18 15 27)"/>
+      <ellipse fill="currentColor" cx="25.5" cy="16.5" rx="5.4" ry="7.2" transform="rotate(-6 25.5 16.5)"/>
+      <ellipse fill="currentColor" cx="38.5" cy="16.5" rx="5.4" ry="7.2" transform="rotate(6 38.5 16.5)"/>
+      <ellipse fill="currentColor" cx="49" cy="27" rx="5.2" ry="6.6" transform="rotate(18 49 27)"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 64 64">
+      <path fill="currentColor" d="M32 55C19 46 7 36.5 7 23.6 7 15.5 13.2 9.5 20.6 9.5c5 0 8.8 2.6 11.4 6.6 2.6-4 6.4-6.6 11.4-6.6C50.8 9.5 57 15.5 57 23.6 57 36.5 45 46 32 55z"/>
+    </symbol>
+    <symbol id="i-bone" viewBox="0 0 80 40">
+      <path fill="currentColor" stroke="#1E1A17" stroke-width="2.5" stroke-linejoin="round" d="M17 8.5c-5.2-4.6-13.4-.6-12.8 6.2.3 3 2.2 4.9 4.5 5.3-2.3.6-4.2 2.6-4.4 5.6-.4 6.8 7.9 10.4 12.8 5.6 1.5-1.4 2.4-3.3 2.6-4.8h41.6c.2 1.5 1.1 3.4 2.6 4.8 4.9 4.8 13.2 1.2 12.8-5.6-.2-3-2.1-5-4.4-5.6 2.3-.4 4.2-2.3 4.5-5.3.6-6.8-7.6-10.8-12.8-6.2-1.5 1.4-2.4 3.4-2.6 4.9H19.6c-.2-1.5-1.1-3.5-2.6-4.9z"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 64 64">
+      <path fill="currentColor" d="M32 4c1.6 13.5 4.6 23.3 28 28-23.4 4.7-26.4 14.5-28 28-1.6-13.5-4.6-23.3-28-28C27.4 27.3 30.4 17.5 32 4z"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M4 12h15M13 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="i-down" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 4v15M6 13l6 6 6-6"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/>
+    </symbol>
+    <symbol id="i-wa" viewBox="0 0 32 32">
+      <path fill="currentColor" d="M16 3.2C9 3.2 3.3 8.8 3.3 15.8c0 2.4.7 4.7 1.9 6.7L3.2 28.8l6.5-2c1.9 1 4.1 1.6 6.3 1.6 7 0 12.7-5.6 12.7-12.6S23 3.2 16 3.2zm0 23c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1.2 1.2-3.8-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5.1 10 10 5.2 16 5.2S26.9 10 26.9 15.8 22 26.2 16 26.2zm6-7.8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/>
+    </symbol>
+    <!-- Nito: bianco e nero (smoking) -->
+    <symbol id="cat-nito" viewBox="0 0 64 64">
+      <path fill="#1E1A17" d="M10 11l12.5 9.5a24 24 0 0 1 19 0L54 11l-2 18c2 3 3 6.5 3 10 0 12-10.6 19-23 19S9 51 9 39c0-3.5 1-7 3-10z"/>
+      <path fill="#FFFFFF" d="M32 27c-3 0-4.5 4-5.5 7-3.5 1-8.5 3-8.5 8 0 8 6.5 12 14 12s14-4 14-12c0-5-5-7-8.5-8-1-3-2.500-7-5.5-7z"/>
+      <path fill="#F9C9D4" d="M15.500 17l5 4-4.500 3.500zM48.500 17l-5 4 4.500 3.500z"/>
+      <ellipse fill="#CFE3C4" cx="23.500" cy="34.500" rx="3.800" ry="4.300"/><ellipse fill="#CFE3C4" cx="40.500" cy="34.500" rx="3.800" ry="4.300"/>
+      <ellipse fill="#1E1A17" cx="23.500" cy="35" rx="1.400" ry="3.200"/><ellipse fill="#1E1A17" cx="40.500" cy="35" rx="1.400" ry="3.200"/>
+      <path fill="#F9C9D4" stroke="#1E1A17" stroke-width="1.400" stroke-linejoin="round" d="M29.500 42h5L32 44.800z"/>
+      <path fill="none" stroke="#1E1A17" stroke-width="1.500" stroke-linecap="round" d="M32 44.800c-1 2-3.400 2.400-4.600 1M32 44.800c1 2 3.400 2.400 4.600 1M20 44l-12-1M20 48l-11 2.500M44 44l12-1M44 48l11 2.500"/>
+    </symbol>
+    <!-- Lola: grigia tigrata -->
+    <symbol id="cat-lola" viewBox="0 0 64 64">
+      <path fill="#A8A6A8" stroke="#1E1A17" stroke-width="2.400" stroke-linejoin="round" d="M11 11l12 10a24 24 0 0 1 18 0l12-10-1.500 18c2 3 3 6.500 3 10 0 12-10.600 19-22.500 19S9.500 51 9.500 39c0-3.500 1-7 3-10z"/>
+      <path fill="#F9C9D4" d="M15 17.500l5 4.500-4 3zM49 17.500l-5 4.500 4 3z"/>
+      <path fill="none" stroke="#6E6B6E" stroke-width="2.600" stroke-linecap="round" d="M32 22v7M26 23l1.500 5.500M38 23l-1.500 5.500M11.500 36l5 1.500M11 41l5 .5M52.500 36l-5 1.500M53 41l-5 .5"/>
+      <path fill="none" stroke="#1E1A17" stroke-width="2.600" stroke-linecap="round" d="M20 38c1.600-2.400 5.400-2.400 7 0M37 38c1.600-2.400 5.400-2.400 7 0"/>
+      <path fill="#F9C9D4" stroke="#1E1A17" stroke-width="1.600" stroke-linejoin="round" d="M29.500 44h5L32 46.500z"/>
+      <path fill="none" stroke="#1E1A17" stroke-width="1.600" stroke-linecap="round" d="M32 46.500c-1 2-3.400 2.400-4.600 1M32 46.500c1 2 3.400 2.400 4.600 1M18 46l-12 .5M18 50l-11 3M46 46l12 .5M46 50l11 3"/>
+    </symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">{{skip}}</a>
+
+  <!-- HEADER -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="{{logo_label}}">
+        <span class="logo-mark" aria-hidden="true"><svg><use href="#i-paw"/></svg></span>
+        <span class="logo-word">Tata Isa</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="{{nav_label}}">
+        <ul>
+          <li><a href="#chi-sono">{{nav_about}}</a></li>
+          <li><a href="#cosa-faccio">{{nav_services}}</a></li>
+          <li><a href="#occasioni">{{nav_occasions}}</a></li>
+          <li><a href="#strutture">{{nav_business}}</a></li>
+          <li><a href="#prezzi">{{nav_prices}}</a></li>
+        </ul>
+        <a class="btn btn-ink btn-sm nav-cta-mobile" href="{{wa}}" target="_blank" rel="noopener">
+          <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> {{nav_cta_mobile}}
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <ul class="lang-switch" role="list" aria-label="{{lang_label}}">
+          <li><a href="{{root}}./" hreflang="it" lang="it" {{cur_it}}>IT</a></li>
+          <li><a href="{{root}}en/" hreflang="en" lang="en" {{cur_en}}>EN</a></li>
+          <li><a href="{{root}}de/" hreflang="de" lang="de" {{cur_de}}>DE</a></li>
+        </ul>
+        <a class="btn btn-ink btn-sm header-cta" href="{{wa}}" target="_blank" rel="noopener">
+          {{nav_cta}} <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-open="{{menu_open}}" data-close="{{menu_close}}">
+          <span class="sr-only">{{menu_open}}</span>
+          <span class="menu-bars" aria-hidden="true"><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 1. HERO -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span> {{eyebrow}}</p>
+          <h1 id="hero-title" class="hero-title">
+            {{h1_a}}
+            <span class="title-face" aria-hidden="true">
+              <picture>
+                <source srcset="{{root}}assets/isa-face.webp" type="image/webp">
+                <img src="{{root}}assets/isa-face.jpg" alt="" width="240" height="240">
+              </picture>
+            </span>
+            {{h1_b}}
+          </h1>
+          <p class="hero-sub">{{hero_sub}}</p>
+          <div class="hero-ctas">
+            <a class="btn btn-tangerine btn-lg" href="{{wa}}" target="_blank" rel="noopener">
+              {{hero_cta}} <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="link-arrow" href="#cosa-faccio">{{hero_link}} <svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a>
+          </div>
+          <svg class="deco deco-hero-paw" aria-hidden="true"><use href="#i-paw"/></svg>
+          <svg class="deco deco-hero-bone" aria-hidden="true"><use href="#i-bone"/></svg>
+        </div>
+
+        <div class="hero-visual">
+          <button class="hero-photo" type="button" aria-label="{{hero_pet}}">
+            <picture>
+              <source type="image/webp" srcset="{{root}}assets/isa-hero-450.webp 450w, {{root}}assets/isa-hero-600.webp 600w, {{root}}assets/isa-hero-900.webp 900w, {{root}}assets/isa-hero-1200.webp 1200w" sizes="(min-width: 960px) 480px, 80vw">
+              <img src="{{root}}assets/isa-hero-900.jpg" srcset="{{root}}assets/isa-hero-450.jpg 450w, {{root}}assets/isa-hero-600.jpg 600w, {{root}}assets/isa-hero-900.jpg 900w, {{root}}assets/isa-hero-1200.jpg 1200w" sizes="(min-width: 960px) 480px, 80vw"
+                   alt="{{hero_alt}}" width="1200" height="1600" fetchpriority="high">
+            </picture>
+          </button>
+          <div class="hero-card">
+            <svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg>
+            <span>{{hero_card}}</span>
+          </div>
+          <a class="price-sticker" href="#prezzi">
+            <span class="ps-from">{{price_from}}</span>
+            <span class="ps-amount">15€</span>
+            <span class="ps-unit">{{price_unit}}</span>
+          </a>
+          <div class="badge-rotate" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <defs><path id="badge-circle" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs>
+              <circle cx="60" cy="60" r="60" fill="#1E1A17"/>
+              <g class="badge-text">
+                <text><textPath href="#badge-circle" textLength="272">TATA ISA · PET SITTER · TATA ISA · PET SITTER · </textPath></text>
+              </g>
+              <use href="#i-paw" x="44" y="44" width="32" height="32" color="#FFD84D"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Striscia che scorre -->
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee">
+        <div class="marquee-track">
+          <span>{{marquee}}</span><span>{{marquee}}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. CHI SONO -->
+    <section class="section" id="chi-sono" aria-labelledby="chi-title">
+      <div class="container">
+        <div class="block block-butter about">
+          <div class="about-copy">
+            <p class="label reveal">{{about_label}}</p>
+            <h2 id="chi-title" class="h2 reveal">{{about_title}} <span class="wave" aria-hidden="true">👋</span></h2>
+            <p class="lead reveal">{{about_text}}</p>
+            <svg class="deco deco-about-heart" aria-hidden="true"><use href="#i-heart"/></svg>
+          </div>
+          <div class="about-media reveal">
+            <div class="video-frame">
+              <video class="lazy-video" muted loop playsinline preload="none"
+                     poster="{{root}}assets/video-coccole-poster.webp" width="720" height="960"
+                     aria-label="{{about_video}}">
+                <source data-src="{{root}}assets/video-coccole.mp4" type="video/mp4">
+              </video>
+            </div>
+            <button class="tag tag-nito" type="button" data-say="{{meow}}" aria-label="Nito: {{meow}}">
+              <svg class="tag-cat" aria-hidden="true"><use href="#cat-nito"/></svg>
+              <span>Nito</span>
+            </button>
+            <button class="tag tag-lola" type="button" data-say="{{meow}}" aria-label="Lola: {{meow}}">
+              <svg class="tag-cat" aria-hidden="true"><use href="#cat-lola"/></svg>
+              <span>Lola</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. COSA FACCIO -->
+    <section class="section" id="cosa-faccio" aria-labelledby="cosa-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="label reveal">{{svc_label}}</p>
+          <h2 id="cosa-title" class="h2 reveal">{{svc_title}}</h2>
+          <svg class="deco deco-services-star" aria-hidden="true"><use href="#i-star"/></svg>
+        </header>
+
+        <div class="services">
+          <figure class="service-video reveal">
+            <video class="lazy-video" muted loop playsinline preload="none"
+                   poster="{{root}}assets/video-passeggiata-poster.webp" width="720" height="960"
+                   aria-label="{{svc_video}}">
+              <source data-src="{{root}}assets/video-passeggiata.mp4" type="video/mp4">
+            </video>
+            <figcaption><svg class="ico" aria-hidden="true"><use href="#i-paw"/></svg> {{svc_video_cap}}</figcaption>
+          </figure>
+
+          <ul class="service-grid" role="list">
+            <li class="service-card bg-butter reveal">
+              <span class="service-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="11" r="4.5"/><path d="M13 16v13l-4 12M13 29l5 12M8 21l5-3 6 4"/><path d="M19 22c6 0 9 3 12 8"/><path d="M29 33c2-2 5-3 8-3h4l2-3 1 4v3c0 2-2 4-4 4h-9c-1 2-2 3-4 3"/><path d="M33 37v4M40 38v3"/></g></svg>
+              </span>
+              <h3>{{svc1_t}}</h3>
+              <p>{{svc1_d}}</p>
+            </li>
+            <li class="service-card bg-blush reveal">
+              <span class="service-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 25h36l-3 11c-.6 2.2-2.6 3.6-4.8 3.6H13.8c-2.2 0-4.2-1.4-4.8-3.6z"/><path d="M12 25c1-4 4-6 7-6M20 19c2-3 5-4 8-3M28 16c3 0 6 3 7 9"/><circle cx="17" cy="11" r="1.4" fill="currentColor"/><circle cx="25" cy="8" r="1.4" fill="currentColor"/><circle cx="31" cy="10" r="1.4" fill="currentColor"/></g></svg>
+              </span>
+              <h3>{{svc2_t}}</h3>
+              <p>{{svc2_d}}</p>
+            </li>
+            <li class="service-card bg-sage reveal">
+              <span class="service-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="17" width="26" height="13" rx="6.5" transform="rotate(-35 20 23.5)"/><path d="M16.3 15.8l7.4 10.6"/><circle cx="35" cy="34" r="7"/><path d="M30 39l10-10"/></g></svg>
+              </span>
+              <h3>{{svc3_t}}</h3>
+              <p>{{svc3_d}}</p>
+            </li>
+            <li class="service-card bg-blush reveal">
+              <span class="service-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M30 6L20 26"/><path d="M14 24l12 6-4 12c-6-1-11-4-14-9z"/><path d="M13 33l5 2M16 28l7 3"/><path d="M37 26l1.5 3.5L42 31l-3.5 1.5L37 36l-1.5-3.5L32 31l3.5-1.5z" fill="currentColor"/></g></svg>
+              </span>
+              <h3>{{svc4_t}}</h3>
+              <p>{{svc4_d}}</p>
+            </li>
+            <li class="service-card bg-sage reveal">
+              <span class="service-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22L24 7l18 15"/><path d="M11 18v22h26V18"/><path d="M24 35c-5-3.4-8-6-8-9.4 0-2.3 1.8-4 3.9-4 1.8 0 3.2 1 4.1 2.6.9-1.6 2.3-2.6 4.1-2.6 2.1 0 3.9 1.7 3.9 4 0 3.4-3 6-8 9.4z" fill="currentColor"/></g></svg>
+              </span>
+              <h3>{{svc5_t}}</h3>
+              <p>{{svc5_d}}</p>
+            </li>
+            <li class="service-card bg-butter reveal">
+              <span class="service-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6H7v12a9 9 0 0 0 18 0V6h-3"/><path d="M16 27v5a9 9 0 0 0 18 0v-4"/><circle cx="34" cy="24" r="4"/></g></svg>
+              </span>
+              <h3>{{svc6_t}}</h3>
+              <p>{{svc6_d}}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FLESSIBILITÀ -->
+    <section class="section section-tight" id="orari" aria-labelledby="orari-title">
+      <div class="container">
+        <div class="block block-ink flex-band">
+          <div class="flex-copy">
+            <h2 id="orari-title" class="h2 reveal">{{flex_title}}</h2>
+            <p class="reveal">{{flex_text}}</p>
+          </div>
+          <ul class="chips reveal" role="list" aria-label="{{flex_label}}">
+            <li class="chip chip-butter"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></svg> {{t_morning}}</li>
+            <li class="chip chip-tangerine"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6.5" fill="currentColor"/></svg> {{t_noon}}</li>
+            <li class="chip chip-blush"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 17a7 7 0 0 1 14 0M2.5 17h19M12 5v2.5M5.6 8.6l1.6 1.6M18.4 8.6l-1.6 1.6"/></g></svg> {{t_afternoon}}</li>
+            <li class="chip chip-sage"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.5 3.5A8.5 8.5 0 1 0 20.5 17 7 7 0 0 1 15.5 3.5z"/></svg> {{t_evening}}</li>
+          </ul>
+          <svg class="deco deco-flex-star" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg class="deco deco-flex-paw" aria-hidden="true"><use href="#i-paw"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. OCCASIONI (privati e turisti) -->
+    <section class="section" id="occasioni" aria-labelledby="occ-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="label reveal">{{occ_label}}</p>
+          <h2 id="occ-title" class="h2 reveal">{{occ_title}}</h2>
+          <p class="section-intro reveal">{{occ_intro}}</p>
+        </header>
+        <ul class="occasions" role="list">
+          <li class="occ reveal"><span class="occ-emoji" aria-hidden="true">🍝</span><h3>{{occ1_t}}</h3><p>{{occ1_d}}</p></li>
+          <li class="occ reveal"><span class="occ-emoji" aria-hidden="true">💍</span><h3>{{occ2_t}}</h3><p>{{occ2_d}}</p></li>
+          <li class="occ occ-hot reveal"><span class="occ-emoji" aria-hidden="true">🧳</span><h3>{{occ3_t}}</h3><p>{{occ3_d}}</p></li>
+          <li class="occ reveal"><span class="occ-emoji" aria-hidden="true">🏛️</span><h3>{{occ4_t}}</h3><p>{{occ4_d}}</p></li>
+          <li class="occ reveal"><span class="occ-emoji" aria-hidden="true">🍷</span><h3>{{occ5_t}}</h3><p>{{occ5_d}}</p></li>
+          <li class="occ reveal"><span class="occ-emoji" aria-hidden="true">♨️</span><h3>{{occ6_t}}</h3><p>{{occ6_d}}</p></li>
+          <li class="occ reveal"><span class="occ-emoji" aria-hidden="true">🎭</span><h3>{{occ7_t}}</h3><p>{{occ7_d}}</p></li>
+          <li class="occ reveal"><span class="occ-emoji" aria-hidden="true">✈️</span><h3>{{occ8_t}}</h3><p>{{occ8_d}}</p></li>
+          <li class="occ reveal"><span class="occ-emoji" aria-hidden="true">🗓️</span><h3>{{occ9_t}}</h3><p>{{occ9_d}}</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. STRUTTURE (business) -->
+    <section class="section" id="strutture" aria-labelledby="biz-title">
+      <div class="container">
+        <div class="block block-sage biz">
+          <div class="biz-copy">
+            <p class="label reveal">{{biz_label}}</p>
+            <h2 id="biz-title" class="h2 reveal">{{biz_title}}</h2>
+            <p class="lead reveal">{{biz_text}}</p>
+            <ul class="checklist reveal" role="list">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg> {{biz_b1}}</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg> {{biz_b2}}</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg> {{biz_b3}}</li>
+            </ul>
+            <a class="btn btn-ink btn-lg reveal" href="{{wa_biz}}" target="_blank" rel="noopener">
+              <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> {{biz_cta}} <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+          </div>
+          <div class="biz-visual reveal">
+            <ul class="venue-stickers" role="list" aria-label="{{biz_venues_label}}">
+              <li class="bg-butter">🏨 {{v1}}</li>
+              <li class="bg-blush">🌾 {{v2}}</li>
+              <li class="bg-cream">🍽️ {{v3}}</li>
+              <li class="bg-tangerine">🍇 {{v4}}</li>
+              <li class="bg-butter">💐 {{v5}}</li>
+              <li class="bg-blush">🏰 {{v6}}</li>
+            </ul>
+            <div class="desk-card" aria-hidden="true">
+              <span class="desk-bell">🛎️</span>
+              <p class="desk-q">{{desk_q}}</p>
+              <p class="desk-a">Tata Isa <svg><use href="#i-paw"/></svg></p>
+              <p class="desk-n">WhatsApp +39 339 849 9393</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PREZZI -->
+    <section class="section" id="prezzi" aria-labelledby="price-title">
+      <div class="container prices">
+        <div class="price-copy">
+          <p class="label reveal">{{price_label}}</p>
+          <h2 id="price-title" class="h2 reveal">{{price_title}}</h2>
+          <ul class="checklist reveal" role="list">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg> {{price_b1}}</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg> {{price_b2}}</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg> {{price_b3}}</li>
+          </ul>
+        </div>
+        <div class="price-card reveal">
+          <p class="pc-from">{{price_from}}</p>
+          <p class="pc-amount">15<span>€</span></p>
+          <p class="pc-unit">{{price_unit}}</p>
+          <p class="pc-note">{{price_note}}</p>
+          <a class="btn btn-tangerine" href="#contatti">{{price_cta}} <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <svg class="deco deco-price-star" aria-hidden="true"><use href="#i-star"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. PERCHÉ SCEGLIERMI -->
+    <section class="section" id="perche" aria-labelledby="perche-title">
+      <div class="container why">
+        <header class="why-head">
+          <p class="label reveal">{{why_label}}</p>
+          <h2 id="perche-title" class="h2 reveal">{{why_title}} <span class="hl">{{why_title_hl}}</span></h2>
+          <svg class="deco deco-why-bone" aria-hidden="true"><use href="#i-bone"/></svg>
+        </header>
+        <ol class="why-list" role="list">
+          <li class="reveal"><span class="why-num" aria-hidden="true">01</span><span class="why-text">{{why1}}</span></li>
+          <li class="reveal"><span class="why-num" aria-hidden="true">02</span><span class="why-text">{{why2}}</span></li>
+          <li class="reveal"><span class="why-num" aria-hidden="true">03</span><span class="why-text">{{why3}}</span></li>
+          <li class="reveal"><span class="why-num" aria-hidden="true">04</span><span class="why-text">{{why4}}</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 9. COME FUNZIONA -->
+    <section class="section" id="come-funziona" aria-labelledby="how-title">
+      <div class="container">
+        <header class="section-head section-head-center">
+          <p class="label reveal">{{how_label}}</p>
+          <h2 id="how-title" class="h2 reveal">{{how_title}}</h2>
+        </header>
+        <ol class="steps" role="list">
+          <li class="step bg-butter reveal"><span class="step-n" aria-hidden="true">1</span><h3>{{how1_t}}</h3><p>{{how1_d}}</p></li>
+          <li class="step bg-blush reveal"><span class="step-n" aria-hidden="true">2</span><h3>{{how2_t}}</h3><p>{{how2_d}}</p></li>
+          <li class="step bg-sage reveal"><span class="step-n" aria-hidden="true">3</span><h3>{{how3_t}}</h3><p>{{how3_d}}</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 10. RECENSIONI — TODO: nascosta finché non arrivano recensioni vere.
+         Per pubblicarla: togli l'attributo `hidden`, sostituisci testi e nomi (con il consenso dei clienti). -->
+    <section class="section" id="recensioni" aria-labelledby="rev-title" hidden>
+      <div class="container">
+        <header class="section-head">
+          <p class="label">{{rev_label}}</p>
+          <h2 id="rev-title" class="h2">{{rev_title}}</h2>
+        </header>
+        <ul class="reviews" role="list">
+          <li class="review bg-butter"><blockquote>“TODO testo recensione”</blockquote><p class="review-who">TODO Nome · TODO cane/gatto</p></li>
+          <li class="review bg-blush"><blockquote>“TODO testo recensione”</blockquote><p class="review-who">TODO Nome · TODO cane/gatto</p></li>
+          <li class="review bg-sage"><blockquote>“TODO testo recensione”</blockquote><p class="review-who">TODO Nome · TODO cane/gatto</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 11. CTA FINALE + MESSAGGIO WHATSAPP -->
+    <section class="section" id="contatti" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="block block-tangerine cta">
+          <div class="paw-trail" aria-hidden="true">
+            <svg style="--i:0"><use href="#i-paw"/></svg><svg style="--i:1"><use href="#i-paw"/></svg><svg style="--i:2"><use href="#i-paw"/></svg><svg style="--i:3"><use href="#i-paw"/></svg><svg style="--i:4"><use href="#i-paw"/></svg><svg style="--i:5"><use href="#i-paw"/></svg><svg style="--i:6"><use href="#i-paw"/></svg><svg style="--i:7"><use href="#i-paw"/></svg><svg style="--i:8"><use href="#i-paw"/></svg><svg style="--i:9"><use href="#i-paw"/></svg>
+          </div>
+          <svg class="deco deco-cta-heart" aria-hidden="true"><use href="#i-heart"/></svg>
+          <svg class="deco deco-cta-star" aria-hidden="true"><use href="#i-star"/></svg>
+          <h2 id="cta-title" class="h2 cta-title reveal">{{cta_title}}</h2>
+          <p class="cta-text reveal">{{cta_text}}</p>
+
+          <form class="composer reveal" id="composer">
+            <h3 class="composer-title">{{c_title}}</h3>
+            <fieldset>
+              <legend>{{c_pet}}</legend>
+              <div class="pick">
+                <label><input type="radio" name="pet" value="dog"><span>🐶 {{c_dog}}</span></label>
+                <label><input type="radio" name="pet" value="cat"><span>🐱 {{c_cat}}</span></label>
+                <label><input type="radio" name="pet" value="other"><span>🐾 {{c_other}}</span></label>
+              </div>
+            </fieldset>
+            <label class="name-field">
+              <span>{{c_name}}</span>
+              <input type="text" name="petname" autocomplete="off" maxlength="40" placeholder="{{c_name_ph}}">
+            </label>
+            <fieldset>
+              <legend>{{c_need}}</legend>
+              <div class="pick">
+                <label><input type="checkbox" name="need" value="{{n1}}"><span>{{n1}}</span></label>
+                <label><input type="checkbox" name="need" value="{{n2}}"><span>{{n2}}</span></label>
+                <label><input type="checkbox" name="need" value="{{n3}}"><span>{{n3}}</span></label>
+                <label><input type="checkbox" name="need" value="{{n4}}"><span>{{n4}}</span></label>
+                <label><input type="checkbox" name="need" value="{{n5}}"><span>{{n5}}</span></label>
+                <label><input type="checkbox" name="need" value="{{n6}}"><span>{{n6}}</span></label>
+                <label><input type="checkbox" name="need" value="{{n7}}"><span>{{n7}}</span></label>
+                <label><input type="checkbox" name="need" value="{{n8}}"><span>{{n8}}</span></label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>{{c_when}}</legend>
+              <div class="pick">
+                <label><input type="checkbox" name="when" value="{{t_morning}}"><span>{{t_morning}}</span></label>
+                <label><input type="checkbox" name="when" value="{{t_noon}}"><span>{{t_noon}}</span></label>
+                <label><input type="checkbox" name="when" value="{{t_afternoon}}"><span>{{t_afternoon}}</span></label>
+                <label><input type="checkbox" name="when" value="{{t_evening}}"><span>{{t_evening}}</span></label>
+              </div>
+            </fieldset>
+            <div class="bubble-wrap">
+              <p class="bubble-label">{{c_preview}}</p>
+              <p class="bubble" id="composer-preview" aria-live="polite">{{msg_default}}</p>
+            </div>
+            <a class="btn btn-ink btn-lg composer-send" id="composer-send" href="{{wa}}" target="_blank" rel="noopener">
+              <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> {{c_send}} <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+          </form>
+          <script type="application/json" id="composer-i18n">{{composer_json}}</script>
+
+          <p class="signature reveal">— Tata Isa <span aria-hidden="true">♥</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#top" aria-label="{{logo_label}}">
+          <span class="logo-mark" aria-hidden="true"><svg><use href="#i-paw"/></svg></span>
+          <span class="logo-word">Tata Isa</span>
+        </a>
+        <p>{{footer_tag}}</p>
+      </div>
+      <!-- TODO: aggiungere Email e Instagram quando disponibili -->
+      <dl class="footer-info">
+        <div><dt>{{f_zone}}</dt><dd>Firenze · Chianti · Siena · Val d'Orcia</dd></div>
+        <div><dt>WhatsApp</dt><dd><a href="{{wa}}" target="_blank" rel="noopener">+39 339 849 9393</a></dd></div>
+        <div><dt>{{f_lang}}</dt><dd><a href="{{root}}./" hreflang="it" lang="it">Italiano</a> · <a href="{{root}}en/" hreflang="en" lang="en">English</a> · <a href="{{root}}de/" hreflang="de" lang="de">Deutsch</a></dd></div>
+      </dl>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Tata Isa · Pet Sitter</p>
+      <a href="#top" class="to-top">{{to_top}} ↑</a>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flottante (mobile) -->
+  <a class="wa-float" href="{{wa}}" target="_blank" rel="noopener" aria-label="{{wa_float}}">
+    <svg aria-hidden="true"><use href="#i-wa"/></svg>
+  </a>
+
+  <script src="{{root}}main.js" defer></script>
+</body>
+</html>
